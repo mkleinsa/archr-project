@@ -1,13 +1,17 @@
 
 services:
-  rstudio:
+  ArchRStudio:
+    # Rebuild with docker compose up -d --build
     build:
       context: .
       platforms: ["linux/amd64"]
-      tags: ["rocker:rstudio-4.1"]
-    image: rocker:rstudio-4.1
-    container_name: rstudio-4.1
+      tags: ["rocker:ArchRStudio"]
+    image: rocker:ArchRStudio
+    container_name: ArchRStudio
     ports:
       - "0.0.0.0:8787:8787"
     environment:
       DISABLE_AUTH: true
+    # Uncomment all below to map a local directory to the container, update accordingly
+    # volumes:
+      #- ~/local/project/dir:/home/rstudio/project_name
